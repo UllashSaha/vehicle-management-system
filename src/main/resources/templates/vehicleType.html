@@ -427,7 +427,9 @@
         <!-- page start-->
       <div class="row">
       <div class="col-lg-12">
+
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"> New Vehicle Type </button>
+
        <table class="table">
                 <thead>
                   <tr>
@@ -479,21 +481,16 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+
         <h5 class="modal-title" id="exampleModalLabel">Add Vehicle Type</h5>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form th:action="@{/vehicleTypes/addNew}" method="post">
-          <!--  <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Id:</label>
-            <input type="text" class="form-control" id="idAdd" name="id" disable>
-          </div> -->
-          
-        
-		  
-		  <div>
+          <div>
             <label for="descriptionAdd" class="col-form-label">Description:</label>
             <input type="text" class="form-control" id="descriptionAdd" name="description" required>
           </div>
@@ -531,7 +528,9 @@
       <div class="modal-body">
       <form>
            <div class="form-group">
+
             <label for="idDetails" class="col-form-label">Id:</label>
+
             <input type="text" class="form-control" id="idDetails" name="id" readonly>
           </div> 
           
@@ -569,7 +568,9 @@
       <div class="modal-body">
        <form th:action="@{/vehicleTypes/update}" method="put"> 
         <div class="form-group">
+
           <label for="idEdit" class="col-form-label">Id:</label>
+
             <input type="text" class="form-control" id="idEdit" name="id" readonly>
           </div> 
            

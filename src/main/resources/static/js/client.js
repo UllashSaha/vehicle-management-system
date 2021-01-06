@@ -41,8 +41,10 @@ $('document').ready(function(){
 			$('#mobileDetails').val(client.mobile);
 			$('#emailDetails').val(client.email);
 			$('#websiteDetails').val(client.website);
+
 		   $('#detailsCountryName').val(client.country.description);
 			$('#detailsStateName').val(client.state.name);
+
 			$('#detailsDetails').val(client.details);
 		});
 		

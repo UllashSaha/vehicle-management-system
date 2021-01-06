@@ -7,7 +7,9 @@ $('document').ready(function(){
 		
 		$.get(href, function(invoiceStatus, status){
 			$('#idEdit').val(invoiceStatus.id);
+
 		    $('#descriptionEdit').val(invoiceStatus.description);
+
 			$('#detailsEdit').val(invoiceStatus.details);
 			
 			
@@ -26,7 +28,7 @@ $('document').ready(function(){
 		
 		$.get(href,function(invoiceStatus, status){
 		    $('#idDetails').val(invoiceStatus.id);
-		
+
 			$('#descriptionDetails').val(invoiceStatus.description);
 			$('#detailsDetails').val(invoiceStatus.details);
 		});
