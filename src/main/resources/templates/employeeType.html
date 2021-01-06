@@ -425,7 +425,39 @@
           </div>
         </div>
         <!-- page start-->
-        Show list of emloyeeTypes
+      <div class="row">
+      <div class="col-lg-12">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"> Add EmployeeType </button>
+       <table class="table">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>details</th>
+                    <th>description</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="employeeType: ${employeeTypes}" >
+                    <td th:text= "${employeeType.getId()}"> </td>
+                    <td th:text="${employeeType.getDetails()}"> </td>
+                    <td th:text= "${employeeType.getDescription()}"> </td>
+                    <td>
+                    
+                    <div class="btn-group">
+                    
+                    <a  th:href="@{employeeTypes/findById/(id=${employeeType.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a  th:href="@{employeeTypes/findById/(id=${employeeType.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
+                    <a  th:href="@{employeeTypes/delete/(id=${employeeType.id})}"  class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                    </div>
+                    
+                    
+                    </td>
+                  </tr>
+              </tbody>
+              </table>
+       </div>
+       </div>
         <!-- page end-->
       </section>
     </section>
@@ -442,8 +474,154 @@
         </div>
     </div>
   </section>
+ </section>
+  
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add EmployeeType</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form th:action="@{/employeeTypes/addNew}" method="post">
+          <!--  <div class="form-group">
+            <label for="recipient-name" class="col-form-label">id:</label>
+            <input type="text" class="form-control" id="idAdd" name="id" disable>
+          </div> -->
+          
+     
+		  
+		  <div>
+            <label for="descriptionAdd" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="descriptionAdd" name="description" required>
+          </div>
+          
+         <div class="form-group">
+            <label for="detailsAdd" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsAdd" name="details" required>
+          </div>
+          
+              <div class="form-group">
+             <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EmployeeType Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+           <div class="form-group">
+            <label for="idDetails" class="col-form-label">id:</label>
+            <input type="text" class="form-control" id="idDetails" name="id" readonly>
+          </div> 
+          
+    
+		  
+		   <div class="form-group">
+            <label for="descriptionAdd" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="descriptionDetails" name="description" readonly>
+          </div>
+          
+         <div class="form-group">
+            <label for="detailsAdd" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsDetails" name="details" readonly>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update State</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form th:action="@{/employeeTypes/update}" method="put"> 
+        <div class="form-group">
+          <label for="idEdit" class="col-form-label">id:</label>
+            <input type="text" class="form-control" id="idEdit" name="id" readonly>
+          </div> 
+           
+  
+		  
+		  <div class="form-group">
+            <label for="descriptionAdd" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="descriptionEdit" name="description" >
+          </div>
+          
+         <div class="form-group">
+            <label for="detailsAdd" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsEdit" name="details" >
+          </div>
+           <div class="form-group">
+             <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete the item?</p>
+      </div>
+      <div class="modal-footer">
+      <a class="btn btn-primary" id="confirmDeleteButton" href="">Confirm</a>
+     
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
   <!-- container section end -->
-  <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <!-- nice scroll -->
@@ -451,6 +629,7 @@
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
+  <script src="js/employeeType.js"></script>
 
 
 </body>

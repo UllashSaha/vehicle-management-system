@@ -1,4 +1,3 @@
-
 $('document').ready(function(){
 	
 	$('table #editButton').on('click',function(event){
@@ -6,14 +5,11 @@ $('document').ready(function(){
 		
 		var href=$(this).attr('href');
 		
-		$.get(href, function(state, status){
-			
-			$('#idEdit').val(state.id);
-			$('#ddlCountryEdit').val(state.countryid);
-			$('#nameEdit').val(state.name);
-			$('#codeEdit').val(state.code);
-			$('#capitalEdit').val(state.capital);
-			$('#detailsEdit').val(state.details);
+		$.get(href, function(vehicleStatus, status){
+			$('#idEdit').val(vehicleStatus.id);
+		
+			$('#descriptionEdit').val(vehicleStatus.description);
+			$('#detailsEdit').val(vehicleStatus.details);
 			
 			
 		});
@@ -29,13 +25,11 @@ $('document').ready(function(){
 		
 		var href=$(this).attr('href');
 		
-		$.get(href,function(state, status){
-		    $('#detailsId').val(state.id);
-			$('#detailsCountryName').val(state.country.description);
-			$('#detailsName').val(state.name);
-			$('#detailsCode').val(state.code);
-			$('#detailsCapital').val(state.capital);
-			$('#detailsDetails').val(state.details);
+		$.get(href,function(vehicleStatus, status){
+		    $('#idDetails').val(vehicleStatus.id);
+		
+			$('#descriptionDetails').val(vehicleStatus.description);
+			$('#detailsDetails').val(vehicleStatus.details);
 		});
 		
 		

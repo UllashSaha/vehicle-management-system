@@ -487,7 +487,7 @@
       <div class="modal-body">
         <form th:action="@{/locations/addNew}" method="post">
           <!--  <div class="form-group">
-            <label for="recipient-name" class="col-form-label">id:</label>
+            <label for="recipient-name" class="col-form-label">Id:</label>
             <input type="text" class="form-control" id="idAdd" name="id" disable>
           </div> -->
           
@@ -563,7 +563,7 @@
       <div class="modal-body">
       <form>
            <div class="form-group">
-            <label for="idDetails" class="col-form-label">id:</label>
+            <label for="idDetails" class="col-form-label">Id:</label>
             <input type="text" class="form-control" id="idDetails" name="id" readonly>
           </div> 
           
@@ -577,7 +577,16 @@
             <input type="text" class="form-control" id="addressDetails" name="address" readonly>
           </div>
           
-          <div class="form-group">
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Country:</label>
+            <input type="text" class="form-control" id="detailsCountryName" readonly>
+          </div>
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">State:</label>
+            <input type="text" class="form-control" id="detailsStateName" readonly>
+          </div>
+           <!-- <div class="form-group">
 		    <label for="ddlCountryDetails" class="col-form-label">Country: </label>
 			    <select class="form-control" id="ddlCountryDetails" name="countryid" readonly>
 			       <option>-SELECT-</option>			    
@@ -597,9 +606,9 @@
 				        th:text="${state.name}">
 				   </option>
 			    </select>				    
-		  </div>
+		  </div> -->
 		  
-		   <div class="form-group">
+		    <div class="form-group">
             <label for="descriptionAdd" class="col-form-label">Description:</label>
             <input type="text" class="form-control" id="descriptionDetails" name="description" readonly>
           </div>
@@ -632,7 +641,7 @@
       <div class="modal-body">
        <form th:action="@{/locations/update}" method="put"> 
         <div class="form-group">
-          <label for="idEdit" class="col-form-label">id:</label>
+          <label for="idEdit" class="col-form-label">Id:</label>
             <input type="text" class="form-control" id="idEdit" name="id" readonly>
           </div> 
            

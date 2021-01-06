@@ -1,4 +1,3 @@
-
 $('document').ready(function(){
 	
 	$('table #editButton').on('click',function(event){
@@ -6,14 +5,11 @@ $('document').ready(function(){
 		
 		var href=$(this).attr('href');
 		
-		$.get(href, function(state, status){
+		$.get(href, function(vehicleMake, status){
+			$('#idEdit').val(vehicleMake.id);
 			
-			$('#idEdit').val(state.id);
-			$('#ddlCountryEdit').val(state.countryid);
-			$('#nameEdit').val(state.name);
-			$('#codeEdit').val(state.code);
-			$('#capitalEdit').val(state.capital);
-			$('#detailsEdit').val(state.details);
+			$('#descriptionEdit').val(vehicleMake.description);
+			$('#detailsEdit').val(vehicleMake.details);
 			
 			
 		});
@@ -29,13 +25,11 @@ $('document').ready(function(){
 		
 		var href=$(this).attr('href');
 		
-		$.get(href,function(state, status){
-		    $('#detailsId').val(state.id);
-			$('#detailsCountryName').val(state.country.description);
-			$('#detailsName').val(state.name);
-			$('#detailsCode').val(state.code);
-			$('#detailsCapital').val(state.capital);
-			$('#detailsDetails').val(state.details);
+		$.get(href,function(vehicleMake, status){
+		    $('#idDetails').val(vehicleMake.id);
+		
+			$('#descriptionDetails').val(vehicleMake.description);
+			$('#detailsDetails').val(vehicleMake.details);
 		});
 		
 		

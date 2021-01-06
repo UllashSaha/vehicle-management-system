@@ -32,8 +32,8 @@ $('document').ready(function(){
 		    $('#idDetails').val(location.id);
 			$('#cityDetails').val(location.city);
 			$('#addressDetails').val(location.address);
-			$('#ddlCountryDetails').val(location.countryid);
-			$('#ddlStateDetails').val(location.stateid);
+			$('#detailsCountryName').val(location.country.description);
+			$('#detailsStateName').val(location.state.name);
 			$('#descriptionDetails').val(location.description);
 			$('#detailsDetails').val(location.details);
 		});

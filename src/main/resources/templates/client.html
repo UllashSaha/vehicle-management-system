@@ -416,7 +416,7 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
+            <h3 class="page-header"><i class="fa fa fa-bars"></i> List of Clients</h3>
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
               <li><i class="fa fa-bars"></i>Pages</li>
@@ -424,12 +424,394 @@
             </ol>
           </div>
         </div>
-        <!-- page start-->
-        Show Client Lists
+       <!-- page start-->
+      <div class="row">
+      <div class="col-lg-12">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal"> New Client </button>
+       <table class="table">
+                <thead>
+                  <tr>
+                    
+                    <th>Name</th>
+                    <th>Website</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                     <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="client: ${clients}" >
+                    <td th:text= "${client.getName()}"> </td>
+                    <td th:text= "${client.getWebsite()}"> </td>
+                    <td th:text="${client.getEmail()}"> </td>
+                    <td th:text= "${client.getCity()}"> </td>
+                    <td th:text= "${client.getPhone()}"> </td>
+                    
+                    
+                    <td>
+                    
+                    <div class="btn-group">
+                    
+                    <a  th:href="@{clients/findById/(id=${client.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a  th:href="@{clients/findById/(id=${client.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
+                    <a  th:href="@{clients/delete/(id=${client.id})}"  class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                    </div>
+                    
+                    
+                    </td>
+                  </tr>
+              </tbody>
+              </table>
+       </div>
+       </div>
         <!-- page end-->
       </section>
-    </section>
-    <!--main content end-->
+   </section>
+  
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form th:action="@{/clients/addNew}" method="post">
+        
+        <table width="100%">
+        <tr>
+            <td width="50%">
+       
+          <div>
+            <label for="nameAdd" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="nameAdd" name="name" required>
+          </div>
+          
+           <div>
+            <label for="addressAdd" class="col-form-label">Address:</label>
+            <input type="text" class="form-control" id="addressAdd" name="address" required>
+          </div>
+          
+          <div>
+            <label for="cityAdd" class="col-form-label">City:</label>
+            <input type="text" class="form-control" id="cityAdd" name="city" placeholder="City">
+          </div>
+          
+           <div>
+            <label for="phoneAdd" class="col-form-label">Phone:</label>
+            <input type="text" class="form-control" id="phoneAdd" name="phone" placeholder="Phone">
+          </div>
+          
+          <div>
+            <label for="mobileAdd" class="col-form-label">Mobile:</label>
+            <input type="text" class="form-control" id="mobileAdd" name="mobile" placeholder="Mobile">
+          </div>
+       
+       
+      </td>
+            <td width="50%" style="padding-left:10px">
+           <div>
+            <label for="emailAdd" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="EmailAdd" name="email" placeholder="Email">
+              <div>
+            <label for="websiteAdd" class="col-form-label">Website:</label>
+            <input type="text" class="form-control" id="websiteAdd" name="website" placeholder="Website">
+          </div>
+          </div>
+          
+          
+          
+           
+        
+          
+           
+          
+          <div class="form-group">
+		    <label for="ddlCountryAdd" class="col-form-label">Country: </label>
+			    <select class="form-control" id="ddlCountryAdd" name="countryid">
+			       <option>-SELECT-</option>			    
+			       <option th:each="country:${countries}"
+				        th:value="${country.id}"
+				        th:text="${country.description}">
+				   </option>
+			    </select>				    
+		  </div>
+		  
+		    <div class="form-group">
+		    <label for="ddlStateAdd" class="col-form-label">State: </label>
+			    <select class="form-control" id="ddlStateAdd" name="stateid">
+			       <option>-SELECT-</option>			    
+			       <option th:each="state:${states}"
+				        th:value="${state.id}"
+				        th:text="${state.name}">
+				   </option>
+			    </select>				    
+		  </div>
+		  
+		  <!-- <div>
+            <label for="descriptionAdd" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="descriptionAdd" name="description" required>
+          </div> -->
+          
+         <div class="form-group">
+            <label for="detailsAdd" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsAdd" name="details" required>
+          </div>
+          </td>
+          </tr>
+       </table>
+            
+             <button type="submit" class="btn btn-primary">Sign Up</button>
+         
+        
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Client Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+      
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Id:</label>
+            <input type="text" class="form-control" id="idDetails" name="id" disable>
+          </div> 
+          <div>
+            <label for="nameDetails" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="nameDetails" name="name" Required>
+          </div>
+          
+           <div>
+            <label for="addressDetails" class="col-form-label">Address:</label>
+            <input type="text" class="form-control" id="addressDetails" name="address" readonly>
+          </div>
+          
+          <div>
+            <label for="cityDetails" class="col-form-label">City:</label>
+            <input type="text" class="form-control" id="cityDetails" name="city" readonly>
+          </div>
+          
+           <div>
+            <label for="phoneDetails" class="col-form-label">Phone:</label>
+            <input type="text" class="form-control" id="phoneDetails" name="phone"  readonly>
+          </div>
+          
+          
+           <div>
+            <label for="mobileDetails" class="col-form-label">Mobile:</label>
+            <input type="text" class="form-control" id="mobileDetails" name="mobile" readonly>
+          </div>
+          
+          
+            <div>
+            <label for="websiteDetails" class="col-form-label">Website:</label>
+            <input type="text" class="form-control" id="websiteDetails" name="website" readonly>
+          </div>
+          
+           <div>
+            <label for="emailDetails" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="emailDetails" name="email" readonly>
+          </div>
+          
+            <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Country:</label>
+            <input type="text" class="form-control" id="detailsCountryName" readonly>
+          </div>
+          
+           <div class="form-group">
+            <label for="recipient-name" class="col-form-label">State:</label>
+            <input type="text" class="form-control" id="detailsStateName" readonly>
+          </div>
+       <!-- <div class="form-group">
+		    <label for="ddlCountryDetails" class="col-form-label">Country: </label>
+			    <select class="form-control" id="ddlCountryDetails" name="countryid" readonly>
+			       <option>-SELECT-</option>			    
+			       <option th:each="country:${countries}"
+				        th:value="${country.id}"
+				        th:text="${country.description}">
+				   </option>
+			    </select>				    
+		  </div>
+		  
+		    <div class="form-group">
+		    <label for="ddlStateDetails" class="col-form-label">State: </label>
+			    <select class="form-control" id="ddlStateDetails" name="stateid" readonly>
+			       <option>-SELECT-</option>			    
+			       <option th:each="state:${states}"
+				        th:value="${state.id}"
+				        th:text="${state.name}">
+				   </option>
+			    </select>				    
+		  </div> -->
+		  <!--   <div>
+            <label for="descriptionEdit" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="descriptionEdit" name="description" readonly>
+          </div> -->
+          
+         <div class="form-group">
+            <label for="detailsDetails" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsDetails" name="details" readonly>
+          </div>
+      
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form th:action="@{/clients/update}" method="put"> 
+         <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Id:</label>
+            <input type="text" class="form-control" id="idEdit" name="id" disable>
+          </div> 
+          <div>
+            <label for="nameEdit" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="nameEdit" name="name" required>
+          </div>
+          
+           <div>
+            <label for="addressEdit" class="col-form-label">Address:</label>
+            <input type="text" class="form-control" id="addressEdit" name="address" required>
+          </div>
+          
+          <div>
+            <label for="cityEdit" class="col-form-label">City:</label>
+            <input type="text" class="form-control" id="cityEdit" name="city" placeholder="City" required>
+          </div>
+          
+           <div>
+            <label for="phoneEdit" class="col-form-label">Phone:</label>
+            <input type="text" class="form-control" id="phoneEdit" name="phone" placeholder="Phone" required>
+          </div>
+          
+          
+           <div>
+            <label for="mobileEdit" class="col-form-label">Mobile:</label>
+            <input type="text" class="form-control" id="mobileEdit" name="mobile" placeholder="Mobile" required>
+          </div>
+          
+           <div>
+            <label for="websiteEdit" class="col-form-label">Website:</label>
+            <input type="text" class="form-control" id="websiteEdit" name="website" placeholder="Email" required>
+          </div>
+          
+           <div>
+            <label for="emailEdit" class="col-form-label">Email:</label>
+            <input type="email" class="form-control" id="emailEdit" name="email" placeholder="Email" required>
+          </div>
+          
+          
+          
+           
+        
+          
+           
+          
+          <div class="form-group">
+		    <label for="ddlCountryEdit" class="col-form-label">Country: </label>
+			    <select class="form-control" id="ddlCountryEdit" name="countryid" required>
+			       <option>-SELECT-</option>			    
+			       <option th:each="country:${countries}"
+				        th:value="${country.id}"
+				        th:text="${country.description}">
+				   </option>
+			    </select>				    
+		  </div>
+		  
+		    <div class="form-group">
+		    <label for="ddlStateEdit" class="col-form-label">State: </label>
+			    <select class="form-control" id="ddlStateEdit" name="stateid" required>
+			       <option>-SELECT-</option>			    
+			       <option th:each="state:${states}"
+				        th:value="${state.id}"
+				        th:text="${state.name}">
+				   </option>
+			    </select>				    
+		  </div>
+		  
+		<!--   <div>
+            <label for="descriptionEdit" class="col-form-label">Description:</label>
+            <input type="text" class="form-control" id="descriptionEdit" name="description" required>
+          </div> -->
+          
+         <div class="form-group">
+            <label for="detailsEdit" class="col-form-label">Details:</label>
+            <input type="text" class="form-control" id="detailsDetails" name="details" required>
+          </div>
+          
+              <div class="form-group">
+             <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete the item?</p>
+      </div>
+      <div class="modal-footer">
+      <a class="btn btn-primary" id="confirmDeleteButton" href="">Confirm</a>
+     
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <!-- container section end -->
     <div class="text-right">
       <div class="credits">
           <!--
@@ -438,10 +820,11 @@
             Licensing information: https://bootstrapmade.com/license/
             Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
           -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+<!--           Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
         </div>
     </div>
-  </section>
+    
+ 
   <!-- container section end -->
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
@@ -451,7 +834,7 @@
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
-
+<script src="js/client.js"></script>
 
 </body>
 

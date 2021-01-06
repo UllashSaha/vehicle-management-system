@@ -1,4 +1,3 @@
-
 $('document').ready(function(){
 	
 	$('table #editButton').on('click',function(event){
@@ -6,14 +5,11 @@ $('document').ready(function(){
 		
 		var href=$(this).attr('href');
 		
-		$.get(href, function(state, status){
+		$.get(href, function(jobTitle, status){
+			$('#idEdit').val(jobTitle.id);
 			
-			$('#idEdit').val(state.id);
-			$('#ddlCountryEdit').val(state.countryid);
-			$('#nameEdit').val(state.name);
-			$('#codeEdit').val(state.code);
-			$('#capitalEdit').val(state.capital);
-			$('#detailsEdit').val(state.details);
+			$('#descriptionEdit').val(jobTitle.description);
+			$('#detailsEdit').val(jobTitle.details);
 			
 			
 		});
@@ -29,13 +25,11 @@ $('document').ready(function(){
 		
 		var href=$(this).attr('href');
 		
-		$.get(href,function(state, status){
-		    $('#detailsId').val(state.id);
-			$('#detailsCountryName').val(state.country.description);
-			$('#detailsName').val(state.name);
-			$('#detailsCode').val(state.code);
-			$('#detailsCapital').val(state.capital);
-			$('#detailsDetails').val(state.details);
+		$.get(href,function(jobTitle, status){
+		    $('#idDetails').val(jobTitle.id);
+		
+			$('#descriptionDetails').val(jobTitle.description);
+			$('#detailsDetails').val(jobTitle.details);
 		});
 		
 		
