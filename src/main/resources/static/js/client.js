@@ -61,4 +61,11 @@ $('document').ready(function(){
 		$('#deleteModal').modal();		
 	});
 	
+	$('.table #photoButton').on('click',function(event) {
+   event.preventDefault();
+   var href = $(this).attr('href');
+   $('#photoModal #clientPhoto').attr('src', href);
+   $('#photoModal').modal();		
+});
+	
 });

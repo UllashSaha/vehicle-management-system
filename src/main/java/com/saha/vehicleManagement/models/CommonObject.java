@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @MappedSuperclass
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class CommonObject {
+public class CommonObject extends Auditable<String>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

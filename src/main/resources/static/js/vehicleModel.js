@@ -12,6 +12,7 @@ $('document').ready(function(){
 			$('#detailsEdit').val(vehicleModel.details);
 			
 			
+			
 		});
 		
 		$('#editModal').modal();
@@ -27,9 +28,17 @@ $('document').ready(function(){
 		
 		$.get(href,function(vehicleModel, status){
 		    $('#idDetails').val(vehicleModel.id);
-			
 			$('#descriptionDetails').val(vehicleModel.description);
 			$('#detailsDetails').val(vehicleModel.details);
+			
+			$('#createdByDetails').val(vehicleModel.createdBy);
+			
+			$('#createdDateDetails').val(vehicleModel.createdDate.substr(0,19).replace("T", " "));
+			
+			$('#lastModifiedByDetails').val(vehicleModel.lastModifiedBy);
+			
+			$('#lastModifiedDateDetails').val(vehicleModel.lastModifiedDate.substr(0.19).replace("T", " "));
+			
 		});
 		
 		
