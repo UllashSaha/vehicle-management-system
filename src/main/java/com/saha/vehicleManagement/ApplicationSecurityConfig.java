@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -30,6 +31,18 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 				"/css/**", 
 				"/fonts/**", 
 				"/img/**").permitAll()
+		.antMatchers(
+				"/register", 
+				"/resources/**", 
+				"/css/**", 
+				"/fonts/**", 
+				"/img/**",
+				"/js/**"
+				
+				).permitAll()
+		.antMatchers(
+				"/users/addNew"
+				).permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
@@ -42,10 +55,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 	}
 
+//	
+//	@Bean
+//	public PasswordEncoder passwordEncoder() {
+//		return NoOpPasswordEncoder.getInstance();
+//	}
 	
 	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
+	public BCryptPasswordEncoder bCryptpasswordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 	
 	@Autowired
@@ -55,7 +73,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
 		provider.setUserDetailsService(userDetailsService);
-		provider.setPasswordEncoder(passwordEncoder());
+		provider.setPasswordEncoder(bCryptpasswordEncoder());
 		return provider;
 	}
 	

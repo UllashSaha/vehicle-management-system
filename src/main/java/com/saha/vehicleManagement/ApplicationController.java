@@ -13,10 +13,16 @@ public class ApplicationController {
 	
 	@GetMapping("/login") // if I get /index     
     public String login() {
-    	return "login";   //it will return the index.html page
+    	return "login";   //it will return the login.html page
     }
 	@GetMapping("/logout") // if I get /index     
     public String logout() {
     	return "login";   //it will return the index.html page
     }
+	
+	@GetMapping("/register") // if I get /index     
+    public String register() {
+    	return "register";   //it will return the index.html page
+    }
+	
 }

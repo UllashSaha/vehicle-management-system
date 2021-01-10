@@ -41,23 +41,37 @@
 
   <div class="container">
 
-    <form class="login-form" action="index.html">
+    <form class="login-form" th:action="@{/users/addNew}" method="post">
       <div class="login-wrap">
         <p class="login-img"><i class="icon_lock_alt"></i></p>
+        
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control" placeholder="Username" autofocus>
+          <input type="text" class="form-control" placeholder="Firstname" autofocus name="firstname">
         </div>
         <div class="input-group">
+          <span class="input-group-addon"><i class="icon_profile"></i></span>
+          <input type="text" class="form-control" placeholder="Lastname" autofocus name="lastname">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon_profile"></i></span>
+          <input type="text" class="form-control" placeholder="Username" autofocus name="username">
+        </div>
+        
+        <div class="input-group">
           <span class="input-group-addon"><i class="icon_key_alt"></i></span>
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+        </div>
+         <div class="input-group">
+          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+          <input type="password" class="form-control" placeholder="Confirm Password" id="confirmpassword">
         </div>
         <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-                <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
+               <span> <a th:href="@{/login}"> login Page</a></span>
+                <span class="pull-right"> <a th:href="@{/forget-password}"> Forgot Password?</a></span>
             </label>
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-        <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+        
       </div>
     </form>
     <div class="text-right">
@@ -68,11 +82,15 @@
             Licensing information: https://bootstrapmade.com/license/
             Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
           -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+         
         </div>
     </div>
   </div>
-
+   
+    <!-- javascripts -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+    <script src="js/register.js"></script>
 
 </body>
 
