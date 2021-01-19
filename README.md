@@ -20,8 +20,8 @@ Project is created with:
 	
 ## Setup 
 To run this project,
-*Install MySQL Server
-*Install JDK 1.8
+* Install [MySQL]Server {https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/windows-install-archive.html}
+* Install JDK [1.8]{https://www.oracle.com/ca-en/java/technologies/javase/javase-jdk8-downloads.html}
 
 ## Running the application locally
 * Run your MySQL Server
