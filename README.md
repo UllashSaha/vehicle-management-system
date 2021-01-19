@@ -23,9 +23,9 @@ To run this project,
 *Install MySQL Server
 *Install JDK 1.8
 
-#Running the application locally
+## Running the application locally
 * Run your MySQL Server
-* Change username, password and datasource url in com.application.properties file according to your database connection.  
+* Change username, password and datasource url from com.application.properties file according to your database connection.  
 * Run the com.saha.vehicleManagement.VehicleManagementApplication class from your IDE.
 
 Acknowledgement: [Link](https://www.kindsonthegenius.com/spring-boot/build-a-complete-spring-boot-application-from-the-scratch-step-by-step/)
