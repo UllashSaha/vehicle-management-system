@@ -12,7 +12,8 @@ Project is created with:
 * Spring Boot 2.4.1
 * Spring Boot Test
 * MySQL Server 8.0.22
-* Hibernate ORM
+* Hibernate 
+* Tomcat
 * JPA
 * HTML, CSS
 * JavaScript, Bootstrap, JQuery, 
@@ -28,5 +29,6 @@ To run this project,
 * Change username, password and datasource url from com.application.properties file according to your database connection.  
 * Run the com.saha.vehicleManagement.VehicleManagementApplication class from your IDE.
 
-Acknowledgement: [Link](https://www.kindsonthegenius.com/spring-boot/build-a-complete-spring-boot-application-from-the-scratch-step-by-step/)
+## Acknowledgement: 
+[https://www.kindsonthegenius.com/spring-boot/build-a-complete-spring-boot-application-from-the-scratch-step-by-step/](https://www.kindsonthegenius.com/spring-boot/build-a-complete-spring-boot-application-from-the-scratch-step-by-step/)
 
