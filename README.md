@@ -1,5 +1,5 @@
 # Vehicle Management System
-   A web-based vehicle management system that stores and manages information of vehicles, clients, employees, invoices, and ensures user authentication and security.
+   A web-based vehicle management system that stores and manages information of vehicles, clients, employees, invoices, and other entities. The system ensures user authentication, security and manages users profile. 
 
 ## Features
 1. CRUD operations for Vehicle, Supplier, Employee, Client, Invoice and other entities.
@@ -20,8 +20,8 @@ Project is created with:
 	
 ## Setup 
 To run this project,
-* Install [MySQL Server] {https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/windows-install-archive.html}
-* Install [JDK 1.8]{https://www.oracle.com/ca-en/java/technologies/javase/javase-jdk8-downloads.html}
+* Install [MySQL Server](https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/windows-install-archive.html)
+* Install [JDK 1.8](https://www.oracle.com/ca-en/java/technologies/javase/javase-jdk8-downloads.html)
 
 ## Running the application locally
 * Run your MySQL Server
