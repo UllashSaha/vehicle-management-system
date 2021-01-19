@@ -28,5 +28,5 @@ To run this project,
 * Change username, password and datasource url in com.application.properties file according to your database connection.  
 * Run the com.saha.vehicleManagement.VehicleManagementApplication class from your IDE.
 
-Acknowledgment: [](https://www.kindsonthegenius.com/spring-boot/build-a-complete-spring-boot-application-from-the-scratch-step-by-step/)
+Acknowledgement: [Link](https://www.kindsonthegenius.com/spring-boot/build-a-complete-spring-boot-application-from-the-scratch-step-by-step/)
 
