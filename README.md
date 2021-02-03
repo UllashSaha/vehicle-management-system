@@ -1,5 +1,5 @@
 # Vehicle Management System
-   A web-based car rental management system that simplifies day to day car rental operations. The software stores and manages information of cars, clients, employees, invoices, and other entities. It ensures user authentication, security and manages users' profile. 
+   A web-based car rental management system that simplifies day to day car rental operations. The software stores and manages information on cars, clients, employees, invoices, and other entities. It ensures users authentication, security and manages users' profile. 
 
 ## Features
 1. CRUD operations for Vehicle, Supplier, Employee, Client, Invoice and other entities.
