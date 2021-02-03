@@ -4,7 +4,7 @@
 ## Features
 1. CRUD operations for Vehicle, Supplier, Employee, Client, Invoice and other entities.
 2. User authentication and security 
-3. User profile Manage    
+3. User profile Management    
 
 ## Technologies & Libraries 
 Project is created with:
